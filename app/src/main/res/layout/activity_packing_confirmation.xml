@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/lyoutToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:orientation="horizontal"
+            android:layout_alignParentTop="true"
+            android:elevation="@dimen/_5sdp"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:padding="@dimen/_3sdp"
+                android:src="@drawable/ic_back"/>
+
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center|center_vertical"
+                android:fontFamily="@font/proximanova_bold"
+                android:layout_gravity="center_vertical"
+                android:text=""
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/_15sdp" />
+
+
+            <ImageView
+                android:id="@+id/imgScanner"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:padding="@dimen/_7sdp"
+                android:src="@drawable/scanner"/>
+
+        </LinearLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/txtNextPage"
+            android:layout_below="@+id/lyoutToolbar"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proximanova_regular"
+                            android:text="Mother Coil ID"
+                            android:textColor="@color/txt_dark_gray"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                        <ImageView
+                            android:layout_width="@dimen/_10sdp"
+                            android:layout_height="@dimen/_10sdp"
+                            android:src="@drawable/m_star"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+
+                    <EditText
+                        android:id="@+id/edtCoilNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/proximanova_regular"
+                        android:singleLine="true"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/gray" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proximanova_regular"
+                            android:text="Barcode"
+                            android:textColor="@color/txt_dark_gray"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                        <ImageView
+                            android:layout_width="@dimen/_10sdp"
+                            android:layout_height="@dimen/_10sdp"
+                            android:src="@drawable/m_star"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+
+                    <EditText
+                        android:id="@+id/edtBarcode"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_45sdp"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/proximanova_regular"
+                        android:singleLine="false"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/gray" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_30sdp"
+                    android:paddingEnd="@dimen/_15sdp"
+                    android:paddingBottom="@dimen/_10sdp">
+
+                    <TextView
+                        android:id="@+id/txtOk"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_language_selection"
+                        android:fontFamily="@font/proximanova_bold"
+                        android:gravity="center"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:text="Ok"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <View
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="@dimen/_1sdp" />
+
+                    <TextView
+                        android:id="@+id/txtNotOk"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_delete"
+                        android:fontFamily="@font/proximanova_bold"
+                        android:gravity="center"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:text="Not Ok"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/txtRescan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_rescan"
+                    android:fontFamily="@font/proximanova_bold"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:text="Rescan"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp" />
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <TextView
+            android:id="@+id/txtNextPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/light_gray"
+            android:fontFamily="@font/proximanova_bold"
+            android:gravity="center"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:text="SSIPL No"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp" />
+
+
+
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:paddingTop="@dimen/_20sdp"
+    android:paddingBottom="@dimen/_20sdp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_dialog"
+                android:padding="@dimen/_10sdp">
+
+                <TextView
+                    android:id="@+id/txtHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/_5sdp"
+                    android:text="Are you sure entered the data is valid ?"
+                    android:layout_weight="1"
+                    android:textColor="@color/red"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_14sdp" />
+
+                <TextView
+                    android:id="@+id/txtWorkOrder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="start"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:text=" : "
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp" />
+
+
+                <TextView
+                    android:id="@+id/txtType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="start"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:text=" : "
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp" />
+
+
+                <TextView
+                    android:id="@+id/txtWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="start"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:text=" : "
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp" />
+
+                <TextView
+                    android:id="@+id/txtSSIPLID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="start"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:text=" : "
+                    android:visibility="gone"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/_15sdp"
+                    android:paddingTop="@dimen/_30sdp"
+                    android:paddingEnd="@dimen/_15sdp"
+                    android:paddingBottom="@dimen/_10sdp">
+
+
+                    <TextView
+                        android:id="@+id/txtCancel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_delete"
+                        android:fontFamily="@font/proximanova_bold"
+                        android:gravity="center"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:text="Cancel"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="visible" />
+
+                    <View
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="@dimen/_1sdp" />
+
+
+
+                    <TextView
+                        android:id="@+id/txtValid"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_language_selection"
+                        android:fontFamily="@font/proximanova_bold"
+                        android:gravity="center"
+                        android:paddingTop="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:text="Valid"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="visible" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</RelativeLayout>

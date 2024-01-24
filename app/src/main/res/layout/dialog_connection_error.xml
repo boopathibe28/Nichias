@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_180sdp"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:padding="@dimen/_25sdp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvInternetConnectionMessage"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_5sdp">
+
+        <TextView
+            android:id="@+id/dialogButtonOK"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11sdp"
+            android:padding="@dimen/_5sdp"
+            android:text=" Ok "
+            android:fontFamily="@font/proximanova_regular"
+            android:background="@drawable/bg_square_acents"
+            android:textAllCaps="true" />
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvInternetConnectionMessage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:fontFamily="@font/proximanova_regular"
+        android:text="Some connection error. Please try again after sometime!"
+        android:textColor="@color/black_text"
+        android:textSize="@dimen/_12sdp" />
+</RelativeLayout>

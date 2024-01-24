@@ -1,0 +1,202 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.31.2'
+    }
+}
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+
+buildscript {
+    repositories {
+        maven { url 'https://plugins.gradle.org/m2/' }
+    }
+    dependencies {
+        classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:0.14.0'
+    }
+}
+
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
+//apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
+
+android.applicationVariants.all { variant ->
+    variant.outputs.all {
+        def appName = "Nichias_"
+        def date = new Date()
+        def formattedDate = date.format('dd_MMM_yyyy')
+        outputFileName = appName + formattedDate + "_V1.apk"
+    }
+}
+
+android {
+    compileSdkVersion 31
+    buildToolsVersion "30.0.3"
+    defaultConfig {
+        applicationId "com.nichias"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.generatedDensities = []
+        vectorDrawables.useSupportLibrary = true
+        manifestPlaceholders = [
+                manifestApplicationId          : "${applicationId}",
+                onesignal_app_id               : "",
+                onesignal_google_project_number: ""]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
+    }
+    configurations.all {
+        exclude module: 'okhttp-ws'
+    }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+    lintOptions {
+        // Returns whether lint should be quiet (for example, not write informational messages such as paths to report files written)
+        quiet true
+
+        // Whether lint should set the exit code of the process if errors are found
+        abortOnError false
+
+        // Returns whether lint will only check for errors (ignoring warnings)
+        ignoreWarnings true
+
+        // Returns whether lint should check for fatal errors during release builds. Default is true.
+        // If issues with severity "fatal" are found, the release build is aborted.
+        checkReleaseBuilds false
+    }
+
+
+    dataBinding {
+        enabled true
+    }
+    realm {
+        syncEnabled = true;
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.navigation:navigation-fragment:2.3.2'
+    implementation 'androidx.navigation:navigation-ui:2.3.2'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+  //  implementation 'com.google.firebase:firebase-crashlytics:17.3.0'
+    testImplementation 'junit:junit:4.13.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    implementation 'com.google.android.gms:play-services-vision:11.8.0'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    //Custom Progressbar
+    implementation 'com.tuyenmonkey:mkloader:1.4.0'
+    //Used Play Store Version Comparator
+    implementation 'org.jsoup:jsoup:1.11.3'
+    //Load Image
+    implementation('com.github.bumptech.glide:glide:4.11.0@aar') {
+        transitive = true
+    }
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation 'com.facebook.fresco:fresco:2.2.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    //Toast
+    implementation 'com.valdesekamdem.library:md-toast:0.9.0'
+    //Api Call
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
+    // OneSignal
+    implementation('com.onesignal:OneSignal:3.13.0') {
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'customtabs'
+        exclude group: 'com.google.android.gms', module: 'play-services-base'
+        exclude group: 'com.google.android.gms', module: 'play-services-location'
+        exclude group: 'com.google.firebase', module: 'firebase-messaging'
+        exclude group: 'com.google.android.gms', module: 'play-services-ads-identifier'
+    }
+    // Bounce View
+    implementation 'hari.bounceview:bounceview:0.1.0'
+    // Navigation Bar
+    implementation 'com.aurelhubert:ahbottomnavigation:2.3.4'
+    // Crop
+    implementation 'com.github.mike14u:croperino:1.1.8'
+    //PinEnteryText
+    implementation 'com.alimuzaffar.lib:pinentryedittext:2.0.6'
+    // Map
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.1.0'
+    implementation 'com.google.android.gms:play-services-places:17.0.0'
+    implementation 'com.google.android.libraries.places:places:2.4.0'
+    // ViewPager Indicator
+    implementation 'com.github.vivchar:ViewPagerIndicator:1.1.0'
+    implementation 'com.crystal:crystalrangeseekbar:1.1.3'
+    //facebook
+    implementation 'com.facebook.android:facebook-android-sdk:5.8.0'
+    implementation 'com.facebook.android:facebook-login:5.8.0'
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+
+    implementation 'com.google.firebase:firebase-analytics:18.0.0'
+    implementation 'com.google.firebase:firebase-dynamic-links:19.1.1'
+    implementation 'com.google.firebase:firebase-database:19.6.0'
+    implementation 'com.google.firebase:firebase-messaging:21.0.1'
+    implementation 'com.google.firebase:firebase-appindexing:19.1.0'
+    implementation 'com.google.firebase:firebase-core:18.0.0'
+    implementation 'com.google.firebase:firebase-iid:21.0.1'
+    implementation 'com.google.firebase:firebase-auth:20.0.1'
+    implementation 'com.android.support:multidex:1.0.3'
+
+    implementation platform('com.google.firebase:firebase-bom:26.1.1')
+    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'androidx.work:work-runtime-ktx:2.7.1'
+    implementation('com.alibaba.android:ultraviewpager:1.0.7.7@aar') {
+        transitive = true
+    }
+    implementation 'me.dm7.barcodescanner:zbar:1.8.4'
+    implementation 'com.journeyapps:zxing-android-embedded:3.5.0'
+    implementation 'com.github.blikoon:QRCodeScanner:0.1.2'
+    implementation 'com.budiyev.android:code-scanner:2.1.0'
+
+    implementation files('libs/oppwa.mobile.aar')
+
+    implementation 'androidx.browser:browser:1.4.0'
+    implementation "com.google.android.gms:play-services-wallet:19.1.0"
+    implementation 'com.onesignal:OneSignal:4.6.5'
+
+    implementation 'com.github.ibrahimsn98:android-particles:2.0'
+
+}

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/lyoutAddOnView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:layout_marginBottom="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_1sdp"
+                android:layout_marginRight="@dimen/_1sdp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/proximanova_regular"
+                        android:text="Customer"
+                        android:textColor="@color/txt_dark_gray"
+                        android:textSize="@dimen/_10sdp" />
+
+
+                    <ImageView
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="@dimen/_10sdp"
+                        android:src="@drawable/m_star"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+
+                <EditText
+                    android:id="@+id/edtCustomerRMIN"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:background="@drawable/bg_edt_gray"
+                    android:fontFamily="@font/proximanova_regular"
+                    android:paddingStart="@dimen/_2sdp"
+                    android:paddingEnd="@dimen/_2sdp"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:singleLine="true"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/_11sdp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/gray"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_1sdp"
+                android:layout_marginRight="@dimen/_1sdp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/proximanova_regular"
+                        android:text="Part Name"
+                        android:textColor="@color/txt_dark_gray"
+                        android:textSize="@dimen/_10sdp" />
+
+
+                    <ImageView
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="@dimen/_10sdp"
+                        android:src="@drawable/m_star"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+
+                <EditText
+                    android:id="@+id/edtPartNameRMIN"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:background="@drawable/bg_edt_gray"
+                    android:fontFamily="@font/proximanova_regular"
+                    android:paddingStart="@dimen/_2sdp"
+                    android:paddingEnd="@dimen/_2sdp"
+                    android:singleLine="true"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/_11sdp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/gray"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_1sdp"
+                android:layout_marginRight="@dimen/_1sdp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/proximanova_regular"
+                        android:text="Part No"
+                        android:textColor="@color/txt_dark_gray"
+                        android:textSize="@dimen/_10sdp" />
+
+
+                    <ImageView
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="@dimen/_10sdp"
+                        android:src="@drawable/m_star"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+
+                <EditText
+                    android:id="@+id/edtPartNoRMIN"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:background="@drawable/bg_edt_gray"
+                    android:fontFamily="@font/proximanova_regular"
+                    android:paddingStart="@dimen/_2sdp"
+                    android:paddingEnd="@dimen/_2sdp"
+                    android:singleLine="true"
+                    android:focusableInTouchMode="false"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/_11sdp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/gray"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_1sdp"
+                android:layout_marginRight="@dimen/_1sdp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/proximanova_regular"
+                        android:text="Serial Code"
+                        android:textColor="@color/txt_dark_gray"
+                        android:textSize="@dimen/_10sdp" />
+
+
+                    <ImageView
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="@dimen/_10sdp"
+                        android:src="@drawable/m_star"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+
+                <EditText
+                    android:id="@+id/edtSerialCodeRMIN"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:background="@drawable/bg_edt_gray"
+                    android:fontFamily="@font/proximanova_regular"
+                    android:paddingStart="@dimen/_2sdp"
+                    android:paddingEnd="@dimen/_2sdp"
+                    android:singleLine="true"
+                    android:focusableInTouchMode="false"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/_11sdp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/gray"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/imgAddLineClose"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:padding="@dimen/_3sdp"
+                android:src="@drawable/ic_close_round"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:tint="@color/red"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

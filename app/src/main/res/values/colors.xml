@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1c75bb</color>
+    <color name="colorPrimaryDark">#1c75bb</color>
+    <color name="colorAccent">#82bd41</color>
+    <color name="darkblue">#4060ac</color>
+    <color name="page_bg">#f8f8f8</color>
+    <color name="page_bg_second">#f1f2f3</color>
+    <color name="gray_light">#808080</color>
+    <color name="txt_gray">#b3b3b3</color>
+    <color name="txt_or">#c2bcbc</color>
+    <color name="dot_line">#c2bcbc</color>
+    <color name="gray_dark">#666666</color>
+    <color name="red">#ec1616</color>
+    <color name="black_text">#202020</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="gray_light_bg">#F3F5F9</color>
+    <color name="gray_dark_bg">#787D86</color>
+    <color name="green_light_bg">#F4FFF1</color>
+    <color name="bg_circle">#A6ed2690</color>
+    <color name="white_gray">#f7f7f7</color>
+    <color name="light_gray">#e3e1e1</color>
+    <color name="txt_hint_color">#D5D5D5</color>
+    <color name="page_background">#eff0f6</color>
+    <color name="vw_BgRvFileDivider">#EEEEEE</color>
+    <color name="green">#6FB359</color>
+    <color name="green_light">#ecf9ef</color>
+
+    <color name="light_blue">#82bd41</color>
+    <color name="txt_dark_blue">#204768</color>
+    <color name="dark_blue">#0297d6</color>
+    <color name="txt_dark_gray">#737373</color>
+
+    <color name="bg_light_color">#f8f8f8</color>
+    <color name="light_color">#a9a8a8</color>
+    <color name="dark_gray_color">#231f20</color>
+    <color name="gradient_start">#1c75bb</color>
+    <color name="gradient_end">#1c75bb</color>
+    <color name="next_green">#87c041</color>
+    <color name="language_selection">#5c8f41</color>
+    <color name="wallet_debit">#CEEBFB</color>
+    <color name="transfer">#908e8e</color>
+    <color name="add_btn">#f2f3f7</color>
+    <color name="yellow">#ffa31a</color>
+    <color name="bg_lyout_gray">#7f7f7f</color>
+    <color name="bg_gray_btn">#a2a3a3</color>
+    <color name="thankyou_color">#a4a4a4</color>
+    <color name="thankyou_color2">#979797</color>
+
+    <color name="app_orange">#f59443</color>
+    <color name="app_blue">#1c75bb</color>
+    <color name="app_orange_light">#80F59443</color>
+</resources>

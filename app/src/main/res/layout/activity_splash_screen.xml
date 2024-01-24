@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/rlyoutParent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:context=".activity.SplashScreenActivity">
+
+        <me.ibrahimsn.particle.ParticleView
+            android:id="@+id/particleView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:particleColor="@android:color/holo_green_dark"
+            app:particleCount="60"
+            app:particleLineColor="@android:color/holo_green_dark"
+            app:particleLinesEnabled="true"
+            app:particleMaxRadius="10"
+            app:particleMinRadius="3"
+            android:visibility="gone"
+            app:particlesBackgroundColor="#23262a" />
+
+        <TextView
+            android:id="@+id/txtVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:fontFamily="@font/proximanova_regular"
+            android:text="B1S-Traceability System"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sdp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:scaleType="fitXY"
+            android:src="@drawable/logo" />
+
+
+
+    </RelativeLayout>
+
+</layout>

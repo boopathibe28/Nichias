@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/Shift"
+
+            android:title="Shift" />
+        <item
+            android:id="@+id/MyShifts"
+
+            android:title="My Shifts" />
+        <item
+            android:id="@+id/ShiftHistory"
+
+            android:title="Shift History" />
+        <item android:id="@+id/History"
+            android:title="History"/>
+        <item
+            android:id="@+id/Unavailabilities"
+            android:title="Unavailabilities" />
+        <item
+            android:id="@+id/Notification"
+            android:title="Notification" />
+        <item
+            android:id="@+id/Deliveries"
+            android:title="Deliveries" />
+        <item android:id="@+id/Status"
+            android:title="Status"/>
+        <item
+            android:id="@+id/Absences"
+            android:title="Absences" />
+        <item
+            android:id="@+id/MyProfile"
+            android:title="MyProfile"/>
+
+        <item
+            android:id="@+id/logout"
+
+            android:title="Logout" />
+
+    </group>
+</menu>

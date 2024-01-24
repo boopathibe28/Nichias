@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/llyParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:layout_weight="1"
+                android:fontFamily="@font/proximanova_semibold"
+                android:padding="@dimen/_1sdp"
+                android:text="Doc No"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp" />
+
+
+            <TextView
+                android:id="@+id/txtDocNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:layout_weight="1"
+                android:fontFamily="@font/proximanova_semibold"
+                android:padding="@dimen/_1sdp"
+                android:text="Doc No"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp" />
+
+            <ImageView
+                android:id="@+id/imgTick"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:padding="@dimen/_3sdp"
+                android:src="@drawable/ic_tick" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:layout_weight="1"
+                android:fontFamily="@font/proximanova_semibold"
+                android:padding="@dimen/_1sdp"
+                android:text="Op Batch"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp" />
+
+
+            <TextView
+                android:id="@+id/txtOpBatch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:layout_weight="1"
+                android:fontFamily="@font/proximanova_semibold"
+                android:padding="@dimen/_1sdp"
+                android:text="Op Batch"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp" />
+
+            <ImageView
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:padding="@dimen/_3sdp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

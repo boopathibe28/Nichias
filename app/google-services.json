@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "142290271782",
+    "project_id": "ssipl",
+    "storage_bucket": "ssipl-customer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:142290271782:android:7b1276ca592b06a52fb0e7",
+        "android_client_info": {
+          "package_name": "com.nichias"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "142290271782-p3g87dg6q8d4mgqr7hfkcfsj3ahlso16.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDE5Erpl7Ilazg82FLdzi3EaKUPb8qIXbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "142290271782-p3g87dg6q8d4mgqr7hfkcfsj3ahlso16.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:142290271782:android:d20106f417b0c1cc2fb0e7",
+        "android_client_info": {
+          "package_name": "com.nichias"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "142290271782-p3g87dg6q8d4mgqr7hfkcfsj3ahlso16.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDE5Erpl7Ilazg82FLdzi3EaKUPb8qIXbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "142290271782-p3g87dg6q8d4mgqr7hfkcfsj3ahlso16.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

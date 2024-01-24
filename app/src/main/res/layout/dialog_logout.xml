@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:background="@drawable/bg_dialog"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/txtMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_1sdp"
+            android:gravity="center"
+            android:fontFamily="@font/proximanova_regular"
+            android:padding="@dimen/_5sdp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:background="@color/gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/txtClose"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:fontFamily="@font/proximanova_regular"
+                android:padding="@dimen/_10sdp"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp" />
+
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/gray" />
+
+            <TextView
+                android:id="@+id/txtOk"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="@dimen/_10sdp"
+                android:text=""
+                android:fontFamily="@font/proximanova_semibold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
