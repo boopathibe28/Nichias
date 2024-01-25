@@ -103,6 +103,33 @@ Managed No:726804
 
             finish();
         }
+        else if (from.equals("inspection")){
+//SERIAL_CODE:12346456
+//SL_NO:5
+//PART_NO:123-56-91
+            String split[] = result.getContents().split("\n");
+            String tempSC = split[0];
+            String tempSN = split[1];
+            String tempPN = split[2];
+
+            //SERIAL_CODE
+            String splitSC[] = tempSC.split(":");
+            String AnsSC = splitSC[1];
+
+            //SL_NO
+            String splitSN[] = tempSN.split(":");
+            String AnsSN = splitSN[1];
+
+            //PART_NO
+            String splitPN[] = tempPN.split(":");
+            String AnsPN = splitPN[1];
+
+            CommonFunctions.SERIAL_CODE = AnsSC;
+            CommonFunctions.SL_NO = AnsSN;
+            CommonFunctions.PART_NO = AnsPN;
+
+            finish();
+        }
 
         Bundle bundle = new Bundle();
         bundle.putString("from","scaning");

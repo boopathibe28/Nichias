@@ -25,11 +25,13 @@ import com.nichias.model_api.GRNListApiResponse;
 import com.nichias.model_api.GrnProcessCheckApiResponse;
 import com.nichias.model_api.GrnProcessPrintBarCodeApiResponse;
 import com.nichias.model_api.HrsSlittingApiResponse;
+import com.nichias.model_api.InspectionApiResponse;
 import com.nichias.model_api.JobOrderPickupApiResponse;
 import com.nichias.model_api.JobOrdersApiResponse;
 import com.nichias.model_api.LoginApiResponse;
 import com.nichias.model_api.OperatorSwapApiResponse;
 import com.nichias.model_api.PokayokeCheckApiResponse;
+import com.nichias.model_api.PrimaryPackingApiResponse;
 import com.nichias.model_api.PrintRMGateInventoryApiResponse;
 import com.nichias.model_api.RMInventoryApiResponse;
 import com.nichias.model_api.RMInwardApiResponse;
@@ -1556,6 +1558,79 @@ public class CommonApiCalls {
             }
         });
     }
+
+
+    // ----- POST - Inspection
+    public void inspection(final Context context,String body, final CommonCallback.Listener listener) {
+
+        if (!CustomProgressDialog.getInstance().isShowing()) {
+            CustomProgressDialog.getInstance().show(context);
+        }
+        ApiInterface apiInterface = ApiConfiguration.getInstance().getApiBuilder().create(ApiInterface.class);
+        Call<InspectionApiResponse> call = apiInterface.inspection(body);
+        call.enqueue(new Callback<InspectionApiResponse>() {
+            @Override
+            public void onResponse(Call<InspectionApiResponse> call, Response<InspectionApiResponse> response) {
+                if (CustomProgressDialog.getInstance().isShowing()) {
+                    CustomProgressDialog.getInstance().dismiss();
+                }
+                if (response.isSuccessful()) {
+                    listener.onSuccess(response.body());
+                } else {
+                    listener.onFailure(response.message());
+                    CommonFunctions.getInstance().validationError(context,response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<InspectionApiResponse> call, Throwable t) {
+                if (CustomProgressDialog.getInstance().isShowing()) {
+                    CustomProgressDialog.getInstance().dismiss();
+                }
+                CommonFunctions.getInstance().validationError(context,"Failed to connect");
+                t.printStackTrace();
+            }
+        });
+    }
+
+
+
+
+
+    // ----- POST - Inspection
+    public void primary_packing(final Context context,String body, final CommonCallback.Listener listener) {
+
+        if (!CustomProgressDialog.getInstance().isShowing()) {
+            CustomProgressDialog.getInstance().show(context);
+        }
+        ApiInterface apiInterface = ApiConfiguration.getInstance().getApiBuilder().create(ApiInterface.class);
+        Call<PrimaryPackingApiResponse> call = apiInterface.primary_packing(body);
+        call.enqueue(new Callback<PrimaryPackingApiResponse>() {
+            @Override
+            public void onResponse(Call<PrimaryPackingApiResponse> call, Response<PrimaryPackingApiResponse> response) {
+                if (CustomProgressDialog.getInstance().isShowing()) {
+                    CustomProgressDialog.getInstance().dismiss();
+                }
+                if (response.isSuccessful()) {
+                    listener.onSuccess(response.body());
+                } else {
+                    listener.onFailure(response.message());
+                    CommonFunctions.getInstance().validationError(context,response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PrimaryPackingApiResponse> call, Throwable t) {
+                if (CustomProgressDialog.getInstance().isShowing()) {
+                    CustomProgressDialog.getInstance().dismiss();
+                }
+                CommonFunctions.getInstance().validationError(context,"Failed to connect");
+                t.printStackTrace();
+            }
+        });
+    }
+
+
 
 
 

@@ -19,11 +19,13 @@ import com.nichias.model_api.GRNListApiResponse;
 import com.nichias.model_api.GrnProcessCheckApiResponse;
 import com.nichias.model_api.GrnProcessPrintBarCodeApiResponse;
 import com.nichias.model_api.HrsSlittingApiResponse;
+import com.nichias.model_api.InspectionApiResponse;
 import com.nichias.model_api.JobOrderPickupApiResponse;
 import com.nichias.model_api.JobOrdersApiResponse;
 import com.nichias.model_api.LoginApiResponse;
 import com.nichias.model_api.OperatorSwapApiResponse;
 import com.nichias.model_api.PokayokeCheckApiResponse;
+import com.nichias.model_api.PrimaryPackingApiResponse;
 import com.nichias.model_api.PrintRMGateInventoryApiResponse;
 import com.nichias.model_api.RMInventoryApiResponse;
 import com.nichias.model_api.RMInwardApiResponse;
@@ -309,6 +311,19 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST(Urls.RMS)
     Call<GRN2ListApiResponse> grn_2list(@Field("data") String data);
+
+
+    // ----Inspection
+    @FormUrlEncoded
+    @POST(Urls.RMS)
+    Call<InspectionApiResponse> inspection(@Field("data") String data);
+
+
+
+    // ----Inspection
+    @FormUrlEncoded
+    @POST(Urls.RMS)
+    Call<PrimaryPackingApiResponse> primary_packing(@Field("data") String data);
 
 
 }

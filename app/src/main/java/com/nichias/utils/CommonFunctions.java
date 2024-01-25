@@ -23,6 +23,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -93,6 +94,11 @@ public class CommonFunctions {
     public static String LotNo = "";
     public static String Size = "";
     public static String ManagedNo = "";
+
+    public static String SERIAL_CODE = "";
+    public static String SL_NO = "";
+    public static String PART_NO = "";
+
 
     public static String TEMP_OTP = "";
     public static String DEVICE_TYPE = "1";
@@ -829,5 +835,29 @@ public class CommonFunctions {
         }
     }
 
+    public static void showCustomSuccessToast(Activity context, String msg){
+        LayoutInflater inflater = context.getLayoutInflater();
+        View layout = inflater.inflate(R.layout.custom_toast_view, (ViewGroup) context.findViewById(R.id.custom_toast_container));
+        TextView tv = (TextView) layout.findViewById(R.id.txtvw);
+        tv.setText(msg);
+        Toast toast = new Toast(context.getApplicationContext());
+        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 100);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(layout);
+        toast.show();
+    }
+
+
+    public static void showCustomErrorToast(Activity context, String msg){
+        LayoutInflater inflater = context.getLayoutInflater();
+        View layout = inflater.inflate(R.layout.custom_toast_error_view, (ViewGroup) context.findViewById(R.id.custom_toast_container));
+        TextView tv = (TextView) layout.findViewById(R.id.txtvw);
+        tv.setText(msg);
+        Toast toast = new Toast(context.getApplicationContext());
+        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 100);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(layout);
+        toast.show();
+    }
 
 }
