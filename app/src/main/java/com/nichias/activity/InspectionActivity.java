@@ -97,6 +97,9 @@ public class InspectionActivity extends AppCompatActivity implements View.OnClic
                     InspectionApiResponse apiResponse = (InspectionApiResponse) body;
                     if (apiResponse.getStatus().toLowerCase().equals("success")){
                         CommonFunctions.getInstance().showCustomSuccessToast(InspectionActivity.this,apiResponse.getMsg());
+                    }
+                    else {
+                        CommonFunctions.getInstance().showCustomErrorToast(InspectionActivity.this,apiResponse.getMsg());
 
                         binding.edtSerialNo.setText("");
                         binding.edtSerialCode.setText("");
@@ -105,9 +108,6 @@ public class InspectionActivity extends AppCompatActivity implements View.OnClic
                         Bundle bundle = new Bundle();
                         bundle.putString("from", "inspection");
                         CommonFunctions.getInstance().newIntent(InspectionActivity.this, ScanActivity.class, bundle, false, false);
-                    }
-                    else {
-                        CommonFunctions.getInstance().showCustomErrorToast(InspectionActivity.this,apiResponse.getMsg());
                     }
                 }
 

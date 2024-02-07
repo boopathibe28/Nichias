@@ -3,8 +3,8 @@ package com.nichias.api;
 
 public class Urls {
 
-   // public static final String BASE_URL = "http://192.168.20.250:8080/";
-    public static final String BASE_URL = "http://192.168.139.2:8080/";
+    public static final String BASE_URL = "http://192.168.46.2:8080/";
+  //  public static final String BASE_URL = "http://192.168.139.2:8080/";
 
     public static final String LOGIN = "user/otp-login";
 

@@ -91,7 +91,9 @@ public class PrimaryPackingActivity extends AppCompatActivity implements View.On
                     PrimaryPackingApiResponse apiResponse = (PrimaryPackingApiResponse) body;
                     if (apiResponse.getStatus().toLowerCase().equals("success")){
                         CommonFunctions.getInstance().showCustomSuccessToast(PrimaryPackingActivity.this,apiResponse.getMsg());
-
+                    }
+                    else {
+                        CommonFunctions.getInstance().showCustomErrorToast(PrimaryPackingActivity.this,apiResponse.getMsg());
                         binding.edtSerialNo.setText("");
                         binding.edtSerialCode.setText("");
                         binding.edtPartNo.setText("");
@@ -99,9 +101,6 @@ public class PrimaryPackingActivity extends AppCompatActivity implements View.On
                         Bundle bundle = new Bundle();
                         bundle.putString("from", "inspection");
                         CommonFunctions.getInstance().newIntent(PrimaryPackingActivity.this, ScanActivity.class, bundle, false, false);
-                    }
-                    else {
-                        CommonFunctions.getInstance().showCustomErrorToast(PrimaryPackingActivity.this,apiResponse.getMsg());
                     }
                 }
 

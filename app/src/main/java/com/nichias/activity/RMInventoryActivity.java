@@ -5,11 +5,15 @@ import static com.nichias.utils.CommonFunctions.DATA_TIME;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.Window;
 import android.widget.DatePicker;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,11 +31,13 @@ import com.nichias.databinding.ActivityRminventoryBinding;
 import com.nichias.dummy_model.GRNProcess2Json;
 import com.nichias.dummy_model.GRNProcessGETJson;
 import com.nichias.dummy_model.InwardArrayResponse;
+import com.nichias.dummy_model.OperatorSwap;
 import com.nichias.dummy_model.PrintRmGateJson;
 import com.nichias.dummy_model.RMInwardAPIJson;
 import com.nichias.interfaces.ListRemove;
 import com.nichias.model_api.GRN2ListApiResponse;
 import com.nichias.model_api.GRNListApiResponse;
+import com.nichias.model_api.OperatorSwapApiResponse;
 import com.nichias.model_api.PrintRMGateInventoryApiResponse;
 import com.nichias.model_api.RMInwardApiResponse;
 import com.nichias.utils.CommonFunctions;
@@ -101,6 +107,8 @@ public class RMInventoryActivity extends AppCompatActivity implements View.OnCli
 
         BounceView.addAnimTo(binding.edtQRCodeGRN);
         BounceView.addAnimTo(binding.imgScannerQRCodeGRN);
+        BounceView.addAnimTo(binding.txtSaveRMIN);
+        BounceView.addAnimTo(binding.edtQAStatusGRN);
 
 
         binding.edtQRCodeGRN.setOnClickListener(this);
@@ -120,6 +128,8 @@ public class RMInventoryActivity extends AppCompatActivity implements View.OnCli
         binding.txtAddDataRMIN.setOnClickListener(this);
         binding.txtAddMoreRMIN.setOnClickListener(this);
         binding.txtSaveGRN.setOnClickListener(this);
+        binding.txtSaveRMIN.setOnClickListener(this);
+        binding.edtQAStatusGRN.setOnClickListener(this);
 
         binding.tvTitle.setText("RM Inventory");
 
@@ -246,12 +256,24 @@ public class RMInventoryActivity extends AppCompatActivity implements View.OnCli
             array.setCustomer(inwardArrayResponses.get(pos).getCustomer());
             array.setPartName(inwardArrayResponses.get(pos).getPartName());
 
-            int PartNo = Integer.parseInt(inwardArrayResponses.get(pos).getPartNo()) +1;
-            array.setPartNo(PartNo+"");
+            //Part no
+            String part_2 = inwardArrayResponses.get(pos).getPartNo().toString().trim();
+            String lastTwo_part = part_2.substring(Math.max(part_2.length() - 2, 0));
 
-            int SerialCode = Integer.parseInt(inwardArrayResponses.get(pos).getSerialCode()) +1;
+            int PartNo = Integer.parseInt(lastTwo_part) +1;
 
-            array.setSerialCode(SerialCode+"");
+            String final_Part =  part_2.substring(0, part_2.length() - 2);
+            array.setPartNo(final_Part+PartNo+"");
+
+
+            // Serial
+            String serial_2 = inwardArrayResponses.get(pos).getSerialCode().toString().trim();
+            String lastTwo_serial = serial_2.substring(Math.max(serial_2.length() - 2, 0));
+
+            int SerialCode = Integer.parseInt(lastTwo_serial) +1;
+            String final_Serial =  serial_2.substring(0, serial_2.length() - 2);
+            array.setSerialCode(final_Serial+SerialCode+"");
+
             inwardArrayResponses.add(array);
 
             LoadRecyclerView();
@@ -392,6 +414,58 @@ public class RMInventoryActivity extends AppCompatActivity implements View.OnCli
             }, mYear, mMonth, mDay);
             datePickerDialog.getDatePicker().setMinDate(ca.getTimeInMillis());
             datePickerDialog.show();
+        }
+        else if (view == binding.edtQAStatusGRN){
+            final Dialog dialog = new Dialog(RMInventoryActivity.this);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+            dialog.setContentView(R.layout.dialog_qa_status);
+            dialog.setCancelable(false);
+
+            TextView txtNo =  dialog.findViewById(R.id.txtNo);
+            TextView txtYes =  dialog.findViewById(R.id.txtYes);
+            TextView tvPass =  dialog.findViewById(R.id.tvPass);
+            TextView tvFail =  dialog.findViewById(R.id.tvFail);
+            TextView tvOnHold =  dialog.findViewById(R.id.tvOnHold);
+
+            dialog.show();
+
+            txtNo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog.dismiss();
+                }
+            });
+
+            txtYes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog.dismiss();
+                }
+            });
+
+            tvPass.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    binding.edtQAStatusGRN.setText("Pass");
+                    dialog.dismiss();
+                }
+            });
+            tvFail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    binding.edtQAStatusGRN.setText("Fail");
+                    dialog.dismiss();
+                }
+            });
+            tvOnHold.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    binding.edtQAStatusGRN.setText("Hold");
+                    dialog.dismiss();
+                }
+            });
+
         }
         else if(view == binding.txtSaveGRN){
             if (binding.edtQAStatusGRN.getText().toString().trim().isEmpty()){

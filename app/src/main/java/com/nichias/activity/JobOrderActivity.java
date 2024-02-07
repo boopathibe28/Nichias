@@ -225,6 +225,7 @@ public class JobOrderActivity extends AppCompatActivity implements View.OnClickL
                 txtYes.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        dialog.dismiss();
                         //Api Call
                         OperatorSwap apiJson = new OperatorSwap();
                         apiJson.setMethod("pokayoke_opswap");
