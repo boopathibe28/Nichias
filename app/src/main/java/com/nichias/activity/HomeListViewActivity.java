@@ -67,6 +67,7 @@ public class HomeListViewActivity extends AppCompatActivity implements View.OnCl
         BounceView.addAnimTo(binding.lyoutJobOrder);
         BounceView.addAnimTo(binding.lyoutInspection);
         BounceView.addAnimTo(binding.lyoutIntermediatePacking);
+        BounceView.addAnimTo(binding.lyoutSecondaryPacking);
 
 
         binding.lyoutRMInventory.setOnClickListener(this);
@@ -74,6 +75,7 @@ public class HomeListViewActivity extends AppCompatActivity implements View.OnCl
         binding.lyoutJobOrder.setOnClickListener(this);
         binding.lyoutInspection.setOnClickListener(this);
         binding.lyoutIntermediatePacking.setOnClickListener(this);
+        binding.lyoutSecondaryPacking.setOnClickListener(this);
 
     }
 
@@ -93,6 +95,9 @@ public class HomeListViewActivity extends AppCompatActivity implements View.OnCl
         }
         else if (view == binding.lyoutIntermediatePacking){
             CommonFunctions.getInstance().newIntent(HomeListViewActivity.this, PrimaryPackingActivity.class, Bundle.EMPTY, false, false);
+        }
+        else if (view == binding.lyoutSecondaryPacking){
+            CommonFunctions.getInstance().newIntent(HomeListViewActivity.this, SecondaryPackingActivity.class, Bundle.EMPTY, false, false);
         }
     }
 

@@ -37,6 +37,7 @@ import com.nichias.model_api.RollbackEndCutWorkOrder;
 import com.nichias.model_api.RoolbackEndcutApiResponse;
 import com.nichias.model_api.SalesReturnCheckApiResponse;
 import com.nichias.model_api.SalesReturnPrintBarCodeApiResponse;
+import com.nichias.model_api.SecondaryPackingApiResponse;
 import com.nichias.model_api.SsiplIDApiResponse;
 import com.nichias.model_api.TrimmedScrapApiResponse;
 import com.nichias.model_api.TrimmedScrapPostApiResponse;
@@ -324,6 +325,12 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST(Urls.RMS)
     Call<PrimaryPackingApiResponse> primary_packing(@Field("data") String data);
+
+
+    // ----Secondary Packing
+    @FormUrlEncoded
+    @POST(Urls.RMS)
+    Call<SecondaryPackingApiResponse> secondary_packing(@Field("data") String data);
 
 
 }

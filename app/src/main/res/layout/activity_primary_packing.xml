@@ -35,7 +35,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/proximanova_bold"
                 android:gravity="center|center_vertical"
-                android:text="Intermediate Packing"
+                android:text="Primary Packing"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/_15sdp" />
 

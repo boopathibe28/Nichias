@@ -247,7 +247,7 @@
                         android:fontFamily="@font/proximanova_semibold"
                         android:gravity="center"
                         android:padding="@dimen/_8sdp"
-                        android:text="Intermediate Packing"
+                        android:text="Primary Packing"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp" />
 

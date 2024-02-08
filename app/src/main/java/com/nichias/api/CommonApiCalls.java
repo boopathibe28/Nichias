@@ -43,6 +43,7 @@ import com.nichias.model_api.RollbackEndCutWorkOrder;
 import com.nichias.model_api.RoolbackEndcutApiResponse;
 import com.nichias.model_api.SalesReturnCheckApiResponse;
 import com.nichias.model_api.SalesReturnPrintBarCodeApiResponse;
+import com.nichias.model_api.SecondaryPackingApiResponse;
 import com.nichias.model_api.SsiplIDApiResponse;
 import com.nichias.model_api.TrimmedScrapApiResponse;
 import com.nichias.model_api.TrimmedScrapPostApiResponse;
@@ -1621,6 +1622,41 @@ public class CommonApiCalls {
 
             @Override
             public void onFailure(Call<PrimaryPackingApiResponse> call, Throwable t) {
+                if (CustomProgressDialog.getInstance().isShowing()) {
+                    CustomProgressDialog.getInstance().dismiss();
+                }
+                CommonFunctions.getInstance().validationError(context,"Failed to connect");
+                t.printStackTrace();
+            }
+        });
+    }
+
+
+
+    // ----- POST - Secondary Packing
+    public void secondaryPacking(final Context context,String body, final CommonCallback.Listener listener) {
+
+        if (!CustomProgressDialog.getInstance().isShowing()) {
+            CustomProgressDialog.getInstance().show(context);
+        }
+        ApiInterface apiInterface = ApiConfiguration.getInstance().getApiBuilder().create(ApiInterface.class);
+        Call<SecondaryPackingApiResponse> call = apiInterface.secondary_packing(body);
+        call.enqueue(new Callback<SecondaryPackingApiResponse>() {
+            @Override
+            public void onResponse(Call<SecondaryPackingApiResponse> call, Response<SecondaryPackingApiResponse> response) {
+                if (CustomProgressDialog.getInstance().isShowing()) {
+                    CustomProgressDialog.getInstance().dismiss();
+                }
+                if (response.isSuccessful()) {
+                    listener.onSuccess(response.body());
+                } else {
+                    listener.onFailure(response.message());
+                    CommonFunctions.getInstance().validationError(context,response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<SecondaryPackingApiResponse> call, Throwable t) {
                 if (CustomProgressDialog.getInstance().isShowing()) {
                     CustomProgressDialog.getInstance().dismiss();
                 }
