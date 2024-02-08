@@ -1,4 +1,0 @@
-Toji Customer 
-
-Alias Name :  tojicustomer
-Password : tojicustomer
