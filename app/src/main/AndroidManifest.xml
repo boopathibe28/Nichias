@@ -203,11 +203,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity
-            android:name=".activity.SalesReturn"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
+
         <activity
             android:name=".activity.ScrapEnterActivity"
             android:screenOrientation="portrait"
@@ -228,11 +224,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity
-            android:name=".activity.ReprintFGActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
+
         <activity
             android:name=".activity.WIPStoreActivity"
             android:screenOrientation="portrait"
@@ -255,23 +247,16 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
+        <activity
+            android:name=".activity.RemnantActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
         <activity android:name=".utils.LocationOnOff_Similar_To_Google_Maps" />
 
-        <receiver
-            android:name=".activity.CheckoutBroadcastReceiver"
-            android:exported="false" />
 
-        <service
-            android:name="com.oppwa.mobile.connect.service.ConnectService"
-            android:exported="false"/>
 
-        <activity
-            android:name="com.oppwa.mobile.connect.checkout.dialog.CheckoutActivity"
-            android:exported="false"
-            android:launchMode="singleTop"
-            android:theme="@style/Theme.Checkout.Light"
-            android:windowSoftInputMode="adjustResize"
-            tools:replace="android:theme" />
     </application>
 
 </manifest>
