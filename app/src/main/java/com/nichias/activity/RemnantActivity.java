@@ -14,9 +14,19 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.google.gson.Gson;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.nichias.R;
+import com.nichias.api.CommonApiCalls;
+import com.nichias.app_interfaces.CommonCallback;
 import com.nichias.databinding.ActivityRemnantBinding;
+import com.nichias.dummy_model.PokayokeCheck;
+import com.nichias.dummy_model.RemnantFGINJson;
+import com.nichias.dummy_model.RemnantFGOUTJson;
+import com.nichias.dummy_model.RemnantInspectionINJson;
+import com.nichias.model_api.InFGResponse;
+import com.nichias.model_api.OutFGResponse;
+import com.nichias.model_api.PokayokeCheckApiResponse;
 import com.nichias.utils.CommonFunctions;
 
 import java.text.SimpleDateFormat;
@@ -224,6 +234,53 @@ public class RemnantActivity extends AppCompatActivity implements View.OnClickLi
             }
             else {
                 // IN Inspection Save Data
+
+                RemnantInspectionINJson apiJson = new RemnantInspectionINJson();
+                apiJson.setMethod("Remnant-Inspection-IN");
+                apiJson.setRemnant(binding.edtRemnantDropDownIN.getText().toString().trim());
+                apiJson.setPartNo(binding.edtINInspectionPartNo.getText().toString().trim());
+                apiJson.setPartName(binding.edtINInspectionPartName.getText().toString().trim());
+                apiJson.setSerialCode("");
+                apiJson.setDate(binding.edtINInspectionDate.getText().toString().trim());
+                apiJson.setShift(binding.edtINInspectionShift.getText().toString().trim());
+                apiJson.setLessPackingQty(binding.edtINInspectionLessPackingQty.getText().toString().trim());
+                apiJson.setMiddlePartQty(binding.edtINInspectionMiddlePartQty.getText().toString().trim());
+                apiJson.setAcceptableLimitPart(binding.edtINInspectionAcceptableLimitPart.getText().toString().trim());
+                apiJson.setLocation(binding.edtINInspectionLocation.getText().toString().trim());
+                apiJson.setLotNo1(binding.edtINInspectionLessPackingQtyLotNo.getText().toString().trim());
+                apiJson.setLotNo2(binding.edtINInspectionMiddlePartQtyLotNo.getText().toString().trim());
+                apiJson.setRejectionLotNo(binding.edtINInspectionRejectionLotNo.getText().toString().trim());
+                apiJson.setIssuedBy(binding.edtINInspectionIssuedBy.getText().toString().trim());
+
+                Gson gson = new Gson();
+                String input = gson.toJson(apiJson);
+                System.out.println("Input ==> " + input);
+
+                CommonApiCalls.getInstance().RemnantInspection_IN(RemnantActivity.this, input, new CommonCallback.Listener() {
+                    @Override
+                    public void onSuccess(Object body) {
+                        PokayokeCheckApiResponse apiResponse = (PokayokeCheckApiResponse) body;
+                        CommonFunctions.getInstance().successResponseToast(RemnantActivity.this, apiResponse.getMsg());
+
+                        binding.edtINInspectionPartNo.setText("");
+                        binding.edtINInspectionPartName.setText("");
+                        binding.edtINInspectionShift.setText("");
+                        binding.edtINInspectionLessPackingQty.setText("");
+                        binding.edtINInspectionLessPackingQtyLotNo.setText("");
+                        binding.edtINInspectionMiddlePartQty.setText("");
+                        binding.edtINInspectionMiddlePartQtyLotNo.setText("");
+                        binding.edtINInspectionAcceptableLimitPart.setText("");
+                        binding.edtINInspectionRejectionLotNo.setText("");
+                        binding.edtINInspectionLocation.setText("");
+                        binding.edtINInspectionIssuedBy.setText("");
+                    }
+
+                    @Override
+                    public void onFailure(String reason) {
+                        CommonFunctions.getInstance().validationEmptyError(RemnantActivity.this, reason);
+                    }
+                });
+
             }
         }
         else if (view == binding.txtSaveINFG){
@@ -253,6 +310,44 @@ public class RemnantActivity extends AppCompatActivity implements View.OnClickLi
             }
             else {
                 // IN FG Save Data
+
+                RemnantFGINJson apiJson = new RemnantFGINJson();
+                apiJson.setMethod("Remnant-FG-IN");
+                apiJson.setRemnant(binding.edtRemnantDropDownIN.getText().toString().trim());
+                apiJson.setPartNo(binding.edtINFGPartNo.getText().toString().trim());
+                apiJson.setSerialCode(binding.edtINFGSerialCode.getText().toString().trim());
+                apiJson.setDate(binding.edtINFGDate.getText().toString().trim());
+                apiJson.setShift(binding.edtINFGShift.getText().toString().trim());
+                apiJson.setQty(binding.edtINFGQty.getText().toString().trim());
+                apiJson.setLotNo(binding.edtINFGLotNo.getText().toString().trim());
+                apiJson.setIssuedBy(binding.edtINFGLotNo.getText().toString().trim());
+                apiJson.setLocation(binding.edtINFGLocation.getText().toString().trim());
+
+                Gson gson = new Gson();
+                String input = gson.toJson(apiJson);
+                System.out.println("Input ==> " + input);
+
+                CommonApiCalls.getInstance().RemnantInspection_FG(RemnantActivity.this, input, new CommonCallback.Listener() {
+                    @Override
+                    public void onSuccess(Object body) {
+                        InFGResponse apiResponse = (InFGResponse) body;
+                        CommonFunctions.getInstance().successResponseToast(RemnantActivity.this, apiResponse.getMsg());
+
+                        binding.edtINFGPartNo.setText("");
+                        binding.edtINFGSerialCode.setText("");
+                        binding.edtINFGShift.setText("");
+                        binding.edtINFGQty.setText("");
+                        binding.edtINFGLotNo.setText("");
+                        binding.edtINFGIssuedBy.setText("");
+                        binding.edtINFGLocation.setText("");
+                    }
+
+                    @Override
+                    public void onFailure(String reason) {
+                        CommonFunctions.getInstance().validationEmptyError(RemnantActivity.this, reason);
+                    }
+                });
+
             }
         }
         // OUT
@@ -368,6 +463,51 @@ public class RemnantActivity extends AppCompatActivity implements View.OnClickLi
             }
             else {
                 // OUT FG Save Data
+
+                RemnantFGOUTJson apiJson = new RemnantFGOUTJson();
+                apiJson.setMethod("Remnant-FG-OUT");
+                apiJson.setRemnant(binding.edtRemnantDropDownOUT.getText().toString().trim());
+                apiJson.setPartNo(binding.edtOUTFGPartNo.getText().toString().trim());
+                apiJson.setSerialCode(binding.edtOUTFGSerialCode.getText().toString().trim());
+                apiJson.setPartName(binding.edtOUTFGPartName.getText().toString().trim());
+                apiJson.setBinQty(binding.edtOUTFGBinQty.getText().toString().trim());
+                apiJson.setDate(binding.edtOUTFGDate.getText().toString().trim());
+                apiJson.setShift(binding.edtOUTFGShift.getText().toString().trim());
+                apiJson.setRemnantQty(binding.edtOUTFGRemnantQty.getText().toString().trim());
+                apiJson.setLotNo(binding.edtOUTFGLotNo.getText().toString().trim());
+                apiJson.setIssuedBy(binding.edtOUTFGIssuedBY.getText().toString().trim());
+                apiJson.setCheckedBy(binding.edtOUTFGCheckedBy.getText().toString().trim());
+                apiJson.setVerifiededBy(binding.edtOUTFGVerifiedBy.getText().toString().trim());
+
+                Gson gson = new Gson();
+                String input = gson.toJson(apiJson);
+                System.out.println("Input ==> " + input);
+
+                CommonApiCalls.getInstance().Remnant_FG_out(RemnantActivity.this, input, new CommonCallback.Listener() {
+                    @Override
+                    public void onSuccess(Object body) {
+                        OutFGResponse apiResponse = (OutFGResponse) body;
+                        CommonFunctions.getInstance().successResponseToast(RemnantActivity.this, apiResponse.getMsg());
+
+                        binding.edtOUTFGPartNo.setText("");
+                        binding.edtOUTFGSerialCode.setText("");
+                        binding.edtOUTFGPartName.setText("");
+                        binding.edtOUTFGBinQty.setText("");
+                        binding.edtOUTFGShift.setText("");
+                        binding.edtOUTFGRemnantQty.setText("");
+                        binding.edtOUTFGLotNo.setText("");
+                        binding.edtOUTFGIssuedBY.setText("");
+                        binding.edtOUTFGCheckedBy.setText("");
+                        binding.edtOUTFGVerifiedBy.setText("");
+
+                    }
+
+                    @Override
+                    public void onFailure(String reason) {
+                        CommonFunctions.getInstance().validationEmptyError(RemnantActivity.this, reason);
+                    }
+                });
+
             }
         }
     }

@@ -25,11 +25,14 @@ import com.nichias.model_api.GRNListApiResponse;
 import com.nichias.model_api.GrnProcessCheckApiResponse;
 import com.nichias.model_api.GrnProcessPrintBarCodeApiResponse;
 import com.nichias.model_api.HrsSlittingApiResponse;
+import com.nichias.model_api.InFGResponse;
+import com.nichias.model_api.InInspectionResponse;
 import com.nichias.model_api.InspectionApiResponse;
 import com.nichias.model_api.JobOrderPickupApiResponse;
 import com.nichias.model_api.JobOrdersApiResponse;
 import com.nichias.model_api.LoginApiResponse;
 import com.nichias.model_api.OperatorSwapApiResponse;
+import com.nichias.model_api.OutFGResponse;
 import com.nichias.model_api.PokayokeCheckApiResponse;
 import com.nichias.model_api.PrimaryPackingApiResponse;
 import com.nichias.model_api.PrintRMGateInventoryApiResponse;
@@ -1666,6 +1669,115 @@ public class CommonApiCalls {
         });
     }
 
+
+
+
+    // ----- POST Remnant-Inspection-IN
+    public void RemnantInspection_IN(final Context context,String body, final CommonCallback.Listener listener) {
+
+        if (!CustomProgressDialog.getInstance().isShowing()) {
+            CustomProgressDialog.getInstance().show(context);
+        }
+        ApiInterface apiInterface = ApiConfiguration.getInstance().getApiBuilder().create(ApiInterface.class);
+        Call<InInspectionResponse> call = apiInterface.remnant_inspection_in(body);
+        call.enqueue(new Callback<InInspectionResponse>() {
+            @Override
+            public void onResponse(Call<InInspectionResponse> call, Response<InInspectionResponse> response) {
+                if (CustomProgressDialog.getInstance().isShowing()) {
+                    CustomProgressDialog.getInstance().dismiss();
+                }
+                if (response.isSuccessful()) {
+                    listener.onSuccess(response.body());
+                } else {
+                    listener.onFailure(response.message());
+                    CommonFunctions.getInstance().validationError(context,response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<InInspectionResponse> call, Throwable t) {
+                if (CustomProgressDialog.getInstance().isShowing()) {
+                    CustomProgressDialog.getInstance().dismiss();
+                }
+                CommonFunctions.getInstance().validationError(context,"Failed to connect");
+                t.printStackTrace();
+            }
+        });
+    }
+
+
+
+
+
+    // ----- POST Remnant-FG-IN
+    public void RemnantInspection_FG(final Context context,String body, final CommonCallback.Listener listener) {
+
+        if (!CustomProgressDialog.getInstance().isShowing()) {
+            CustomProgressDialog.getInstance().show(context);
+        }
+        ApiInterface apiInterface = ApiConfiguration.getInstance().getApiBuilder().create(ApiInterface.class);
+        Call<InFGResponse> call = apiInterface.remnant_fg_in(body);
+        call.enqueue(new Callback<InFGResponse>() {
+            @Override
+            public void onResponse(Call<InFGResponse> call, Response<InFGResponse> response) {
+                if (CustomProgressDialog.getInstance().isShowing()) {
+                    CustomProgressDialog.getInstance().dismiss();
+                }
+                if (response.isSuccessful()) {
+                    listener.onSuccess(response.body());
+                } else {
+                    listener.onFailure(response.message());
+                    CommonFunctions.getInstance().validationError(context,response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<InFGResponse> call, Throwable t) {
+                if (CustomProgressDialog.getInstance().isShowing()) {
+                    CustomProgressDialog.getInstance().dismiss();
+                }
+                CommonFunctions.getInstance().validationError(context,"Failed to connect");
+                t.printStackTrace();
+            }
+        });
+    }
+
+
+
+
+
+    // ----- POST Remnant-FG_OUT
+    public void Remnant_FG_out(final Context context,String body, final CommonCallback.Listener listener) {
+
+        if (!CustomProgressDialog.getInstance().isShowing()) {
+            CustomProgressDialog.getInstance().show(context);
+        }
+        ApiInterface apiInterface = ApiConfiguration.getInstance().getApiBuilder().create(ApiInterface.class);
+        Call<OutFGResponse> call = apiInterface.remnant_fg_out(body);
+        call.enqueue(new Callback<OutFGResponse>() {
+            @Override
+            public void onResponse(Call<OutFGResponse> call, Response<OutFGResponse> response) {
+                if (CustomProgressDialog.getInstance().isShowing()) {
+                    CustomProgressDialog.getInstance().dismiss();
+                }
+                if (response.isSuccessful()) {
+                    listener.onSuccess(response.body());
+                } else {
+                    listener.onFailure(response.message());
+                    CommonFunctions.getInstance().validationError(context,response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<OutFGResponse> call, Throwable t) {
+                if (CustomProgressDialog.getInstance().isShowing()) {
+                    CustomProgressDialog.getInstance().dismiss();
+                }
+                CommonFunctions.getInstance().validationError(context,"Failed to connect");
+                t.printStackTrace();
+            }
+        });
+    }
 
 
 

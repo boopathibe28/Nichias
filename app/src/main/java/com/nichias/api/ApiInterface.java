@@ -19,11 +19,14 @@ import com.nichias.model_api.GRNListApiResponse;
 import com.nichias.model_api.GrnProcessCheckApiResponse;
 import com.nichias.model_api.GrnProcessPrintBarCodeApiResponse;
 import com.nichias.model_api.HrsSlittingApiResponse;
+import com.nichias.model_api.InFGResponse;
+import com.nichias.model_api.InInspectionResponse;
 import com.nichias.model_api.InspectionApiResponse;
 import com.nichias.model_api.JobOrderPickupApiResponse;
 import com.nichias.model_api.JobOrdersApiResponse;
 import com.nichias.model_api.LoginApiResponse;
 import com.nichias.model_api.OperatorSwapApiResponse;
+import com.nichias.model_api.OutFGResponse;
 import com.nichias.model_api.PokayokeCheckApiResponse;
 import com.nichias.model_api.PrimaryPackingApiResponse;
 import com.nichias.model_api.PrintRMGateInventoryApiResponse;
@@ -331,6 +334,21 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST(Urls.RMS)
     Call<SecondaryPackingApiResponse> secondary_packing(@Field("data") String data);
+
+    // ----In Inspection
+    @FormUrlEncoded
+    @POST(Urls.RMS)
+    Call<InInspectionResponse> remnant_inspection_in(@Field("data") String data);
+
+    // ----In FG
+    @FormUrlEncoded
+    @POST(Urls.RMS)
+    Call<InFGResponse> remnant_fg_in(@Field("data") String data);
+
+    // ----OUT FG
+    @FormUrlEncoded
+    @POST(Urls.RMS)
+    Call<OutFGResponse> remnant_fg_out(@Field("data") String data);
 
 
 }
